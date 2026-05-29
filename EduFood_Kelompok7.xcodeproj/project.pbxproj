@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		7C5A9EA32FC94E4700FBAEA2 /* Supabase in Frameworks */ = {isa = PBXBuildFile; productRef = 7C5A9EA22FC94E4700FBAEA2 /* Supabase */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		6760DF822FB4DF2400CEB97C /* EduFood_Kelompok7.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EduFood_Kelompok7.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -23,6 +27,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7C5A9EA32FC94E4700FBAEA2 /* Supabase in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -33,6 +38,7 @@
 			isa = PBXGroup;
 			children = (
 				6760DF842FB4DF2400CEB97C /* EduFood_Kelompok7 */,
+				7C5A9EA12FC94E4700FBAEA2 /* Frameworks */,
 				6760DF832FB4DF2400CEB97C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -43,6 +49,13 @@
 				6760DF822FB4DF2400CEB97C /* EduFood_Kelompok7.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		7C5A9EA12FC94E4700FBAEA2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -65,6 +78,7 @@
 			);
 			name = EduFood_Kelompok7;
 			packageProductDependencies = (
+				7C5A9EA22FC94E4700FBAEA2 /* Supabase */,
 			);
 			productName = EduFood_Kelompok7;
 			productReference = 6760DF822FB4DF2400CEB97C /* EduFood_Kelompok7.app */;
@@ -346,6 +360,14 @@
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		7C5A9EA22FC94E4700FBAEA2 /* Supabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6760DF902FB4DFB100CEB97C /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Supabase;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 6760DF7A2FB4DF2400CEB97C /* Project object */;
 }
