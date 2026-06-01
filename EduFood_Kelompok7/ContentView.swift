@@ -8,14 +8,20 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject private var authViewModel = AuthViewModel()
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        Group {
+            if authViewModel.isAuthenticated {
+                if authViewModel.userRole == "admin" {
+                    AdminDashboardView(authViewModel: authViewModel)
+                } else {
+                    MainTabView(authViewModel: authViewModel)
+                }
+            } else {
+                LoginView(authViewModel: authViewModel)
+            }
         }
-        .padding()
+        .animation(.default, value: authViewModel.isAuthenticated)
     }
 }
 
