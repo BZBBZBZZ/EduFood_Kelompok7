@@ -12,6 +12,7 @@ class LeaderboardService: LeaderboardServiceProtocol {
         return try await client.database
             .from("users")
             .select("id, nama, score")
+            .neq("role", value: "admin")
             .order("score", ascending: false)
             .limit(50)
             .execute()

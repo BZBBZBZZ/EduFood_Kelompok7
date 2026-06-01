@@ -5,7 +5,7 @@ protocol AuthServiceProtocol {
     func signUp(email: String, password: String, nama: String) async throws
     func signIn(email: String, password: String) async throws -> UserModel
     func signOut() async throws
-    func updateProfile(newName: String, newEmail: String, oldPassword: String?, newPassword: String?) async throws -> (String, String)
+    func updateProfile(newName: String, oldPassword: String?, newPassword: String?) async throws -> String
     func fetchUserScoreAndRank() async throws -> (Int, Int?)
 }
 
@@ -44,7 +44,7 @@ class AuthService: AuthServiceProtocol {
         try await client.auth.signOut()
     }
     
-    func updateProfile(newName: String, newEmail: String, oldPassword: String?, newPassword: String?) async throws -> (String, String) {
+    func updateProfile(newName: String, oldPassword: String?, newPassword: String?) async throws -> String {
         let session = try await client.auth.session
         let userId = session.user.id
         let currentEmail = session.user.email ?? ""
@@ -58,11 +58,6 @@ class AuthService: AuthServiceProtocol {
             needAuthUpdate = true
         }
         
-        if !newEmail.isEmpty && newEmail.lowercased() != currentEmail.lowercased() {
-            attributes.email = newEmail
-            needAuthUpdate = true
-        }
-        
         if needAuthUpdate {
             try await client.auth.update(user: attributes)
         }
@@ -70,13 +65,12 @@ class AuthService: AuthServiceProtocol {
         try await client.database
             .from("users")
             .update([
-                "nama": newName,
-                "email": newEmail.isEmpty ? currentEmail : newEmail
+                "nama": newName
             ])
             .eq("id", value: userId.uuidString)
             .execute()
         
-        return (newName, newEmail.isEmpty ? currentEmail : newEmail)
+        return newName
     }
     
     func fetchUserScoreAndRank() async throws -> (Int, Int?) {
@@ -88,6 +82,7 @@ class AuthService: AuthServiceProtocol {
         let allScores: [UserScore] = try await client.database
             .from("users")
             .select("id, score")
+            .neq("role", value: "admin")
             .order("score", ascending: false)
             .execute()
             .value

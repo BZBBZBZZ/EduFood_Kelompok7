@@ -64,24 +64,19 @@ class AuthViewModel: ObservableObject {
         self.userRank = nil
     }
     
-    func updateProfile(newName: String, newEmail: String, oldPassword: String?, newPassword: String?) async -> Bool {
+    func updateProfile(newName: String, oldPassword: String?, newPassword: String?) async -> Bool {
         self.isLoading = true
         self.errorMessage = nil
-        
-        let allowedCharacterSet = CharacterSet(charactersIn: "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789.@_-")
-        let cleanEmail = String(newEmail.unicodeScalars.filter { allowedCharacterSet.contains($0) }).lowercased()
         
         do {
             let updatedData = try await authService.updateProfile(
                 newName: newName,
-                newEmail: cleanEmail,
                 oldPassword: oldPassword,
                 newPassword: newPassword
             )
             
             await MainActor.run {
-                self.nama = updatedData.0
-                if !cleanEmail.isEmpty { self.email = updatedData.1 }
+                self.nama = updatedData
                 self.isLoading = false
             }
             return true

@@ -22,10 +22,12 @@ struct ProfileView: View {
                         TextField("Nama Lengkap", text: $editNama)
                             .disableAutocorrection(true)
                         
-                        TextField("Email Baru", text: $editEmail)
-                            .autocapitalization(.none)
-                            .disableAutocorrection(true)
-                            .keyboardType(.emailAddress)
+                        HStack {
+                            Text("Email")
+                            Spacer()
+                            Text(authViewModel.email)
+                                .foregroundColor(.secondary)
+                        }
                         
                         // Kolom sandi lama diperlukan oleh ViewModel jika ingin ganti sandi baru
                         SecureField("Kata Sandi Lama (Wajib jika ganti sandi)", text: $oldPassword)
@@ -148,7 +150,6 @@ struct ProfileView: View {
         // PERBAIKAN: Menggunakan parameter newName dan oldPassword sesuai AuthViewModel
         let success = await authViewModel.updateProfile(
             newName: editNama,
-            newEmail: editEmail,
             oldPassword: oldPassword.isEmpty ? nil : oldPassword,
             newPassword: editPassword.isEmpty ? nil : editPassword
         )
