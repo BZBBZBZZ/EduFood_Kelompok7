@@ -116,3 +116,7 @@ struct MateriView: View {
         }
     }
 }
+
+#Preview {
+    MateriView()
+}

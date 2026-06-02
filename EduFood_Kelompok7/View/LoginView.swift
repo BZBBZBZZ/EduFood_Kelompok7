@@ -104,3 +104,7 @@ struct LoginView: View {
         }
     }
 }
+
+#Preview {
+    LoginView(authViewModel: AuthViewModel())
+}

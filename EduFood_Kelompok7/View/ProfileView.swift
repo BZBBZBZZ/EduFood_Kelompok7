@@ -161,3 +161,7 @@ struct ProfileView: View {
         }
     }
 }
+
+#Preview {
+    ProfileView(authViewModel: AuthViewModel())
+}

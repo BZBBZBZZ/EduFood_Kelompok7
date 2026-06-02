@@ -177,3 +177,7 @@ struct MenuCardView: View {
         }
     }
 }
+
+#Preview {
+    HomeView(authViewModel: AuthViewModel(), selectedTab: .constant(0))
+}

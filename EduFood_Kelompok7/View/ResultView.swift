@@ -138,3 +138,28 @@ struct ReviewCard: View {
     }
 }
 
+
+#Preview {
+    NavigationView {
+        ResultView(
+            score: 80,
+            answers: [
+                QuizAnswer(
+                    question: QuestionModel(
+                        id: UUID(),
+                        pertanyaan: "Manakah yang merupakan sumber vitamin C terbaik?",
+                        opsiA: "Jeruk",
+                        opsiB: "Nasi",
+                        opsiC: "Roti",
+                        opsiD: "Mie",
+                        kunciJawaban: "A",
+                        pembahasan: "Jeruk mengandung vitamin C yang sangat tinggi."
+                    ),
+                    selectedOption: "A",
+                    isCorrect: true
+                )
+            ],
+            onRestart: {}
+        )
+    }
+}

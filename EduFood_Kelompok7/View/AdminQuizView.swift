@@ -120,3 +120,9 @@ struct AdminQuizView: View {
         }
     }
 }
+
+#Preview {
+    NavigationView {
+        AdminQuizView()
+    }
+}

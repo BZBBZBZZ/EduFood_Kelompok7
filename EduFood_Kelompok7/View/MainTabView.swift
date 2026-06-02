@@ -47,3 +47,7 @@ struct MainTabView: View {
         .accentColor(.blue)
     }
 }
+
+#Preview {
+    MainTabView(authViewModel: AuthViewModel())
+}

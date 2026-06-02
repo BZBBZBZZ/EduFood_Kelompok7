@@ -93,3 +93,9 @@ struct AdminCategoryView: View {
         }
     }
 }
+
+#Preview {
+    NavigationView {
+        AdminCategoryView()
+    }
+}

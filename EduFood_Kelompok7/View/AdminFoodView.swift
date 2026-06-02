@@ -129,3 +129,9 @@ struct AdminFoodView: View {
         }
     }
 }
+
+#Preview {
+    NavigationView {
+        AdminFoodView()
+    }
+}

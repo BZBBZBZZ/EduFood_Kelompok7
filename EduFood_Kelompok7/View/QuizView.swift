@@ -157,3 +157,7 @@ struct OptionButton: View {
         }
     }
 }
+
+#Preview {
+    QuizView()
+}

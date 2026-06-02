@@ -89,3 +89,7 @@ struct RegisterView: View {
         }
     }
 }
+
+#Preview {
+    RegisterView(authViewModel: AuthViewModel())
+}

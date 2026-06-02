@@ -40,3 +40,7 @@ struct AdminDashboardView: View {
         }
     }
 }
+
+#Preview {
+    AdminDashboardView(authViewModel: AuthViewModel())
+}

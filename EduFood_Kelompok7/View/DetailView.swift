@@ -14,7 +14,6 @@ struct DetailView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 0) {
-                // Header Image
                 AsyncImage(url: URL(string: food.imageUrl)) { phase in
                     if let image = phase.image {
                         image.resizable()
@@ -34,7 +33,6 @@ struct DetailView: View {
                     }
                 }
                 
-                // Content
                 VStack(alignment: .leading, spacing: 24) {
                     VStack(alignment: .leading, spacing: 8) {
                         HStack {
@@ -56,7 +54,6 @@ struct DetailView: View {
                     
                     Divider()
                     
-                    // Description Section
                     VStack(alignment: .leading, spacing: 12) {
                         Label("Deskripsi", systemImage: "text.alignleft")
                             .font(.title3)
@@ -71,7 +68,6 @@ struct DetailView: View {
                     
                     Divider()
                     
-                    // Nutrition Section
                     VStack(alignment: .leading, spacing: 12) {
                         Label("Kandungan Gizi & Manfaat", systemImage: "heart.text.square.fill")
                             .font(.title3)
@@ -95,5 +91,18 @@ struct DetailView: View {
         }
         .edgesIgnoringSafeArea(.top)
         .navigationBarTitleDisplayMode(.inline)
+    }
+}
+
+#Preview {
+    NavigationView {
+        DetailView(food: FoodModel(
+            id: UUID(),
+            nama: "Bayam",
+            kategori: "Sayur",
+            deskripsi: "Bayam adalah sayuran hijau yang kaya akan zat besi dan vitamin.",
+            kandunganGizi: "Zat besi, Vitamin A, Vitamin C, Kalsium",
+            imageUrl: "https://via.placeholder.com/300"
+        ))
     }
 }
