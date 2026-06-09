@@ -19,7 +19,7 @@ class FoodService: FoodServiceProtocol {
     let client = SupabaseService.shared.client
     
     func fetchFoods() async throws -> [FoodModel] {
-        return try await client.database
+        return try await client
             .from("foods")
             .select()
             .execute()
@@ -28,7 +28,7 @@ class FoodService: FoodServiceProtocol {
     
     func fetchCategoriesOptions() async throws -> [String] {
         struct CatOpt: Codable { var name: String }
-        let fetched: [CatOpt] = try await client.database
+        let fetched: [CatOpt] = try await client
             .from("categories")
             .select("name")
             .execute()
@@ -56,7 +56,7 @@ class FoodService: FoodServiceProtocol {
                 "kandungan_gizi": kandunganGizi,
                 "image_url": imageUrl ?? ""
             ]
-            try await client.database
+            try await client
                 .from("foods")
                 .update(updateData)
                 .eq("id", value: id)
@@ -69,12 +69,15 @@ class FoodService: FoodServiceProtocol {
                 "kandungan_gizi": kandunganGizi,
                 "image_url": imageUrl ?? ""
             ]
-            try await client.database.from("foods").insert(newFood).execute()
+            try await client
+                .from("foods")
+                .insert(newFood)
+                .execute()
         }
     }
     
     func deleteFood(id: UUID) async throws {
-        try await client.database
+        try await client
             .from("foods")
             .delete()
             .eq("id", value: id)
