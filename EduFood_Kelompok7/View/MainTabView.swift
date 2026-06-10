@@ -2,7 +2,7 @@
 //  MainTabView.swift
 //  EduFood
 //
-//  Created by Hendrawan Saputro on 10/05/26.
+//  Created by Obie Zuriel on 12/05/26.
 //
 
 import SwiftUI

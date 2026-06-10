@@ -1,3 +1,5 @@
+//  Created by Obie Zuriel on 12/05/26.
+
 import SwiftUI
 
 struct LeaderboardView: View {
