@@ -1,10 +1,10 @@
-# 🥗 EduFood — Kelompok 7
+# EduFood — Kelompok 7
 
 Aplikasi iOS edukatif berbasis **SwiftUI** yang membantu pengguna belajar tentang makanan bergizi, mengerjakan kuis, dan melihat leaderboard. Ditenagai oleh **Supabase** sebagai backend (database, autentikasi, dan storage).
 
 ---
 
-## 📋 Persyaratan
+## Persyaratan
 
 | Kebutuhan | Versi Minimum |
 |---|---|
@@ -16,7 +16,7 @@ Aplikasi iOS edukatif berbasis **SwiftUI** yang membantu pengguna belajar tentan
 
 ---
 
-## 🚀 Cara Setup & Menjalankan Project
+## Cara Setup & Menjalankan Project
 
 ### 1. Clone / Download Project
 
@@ -36,7 +36,7 @@ Buka file **`EduFood_Kelompok7.xcodeproj`** dengan Xcode (double-click atau klik
 
 ---
 
-### 3. ⚠️ Tambahkan Supabase Package (WAJIB)
+### 3. Tambahkan Supabase Package (WAJIB)
 
 > Ini adalah langkah **paling penting**. Tanpa ini, project tidak akan bisa di-build.
 
@@ -66,7 +66,7 @@ Ikuti langkah-langkah berikut untuk menambahkan Supabase ke dalam project:
 
 ---
 
-### 4. ⚠️ Masukkan Supabase URL & API Key (WAJIB)
+### 4. Masukkan Supabase URL & API Key (WAJIB)
 
 Buka file berikut di Xcode:
 
