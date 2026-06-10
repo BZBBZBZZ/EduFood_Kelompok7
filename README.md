@@ -105,3 +105,13 @@ Di toolbar Xcode (atas), pilih simulator atau perangkat iPhone yang ingin diguna
 Tekan **`⌘ + R`** atau klik tombol ▶ **Run** di toolbar Xcode.
 
 Tunggu proses build selesai, lalu aplikasi akan terbuka di simulator.
+
+## 7. Struktur Utama Repo
+
+- App Entry: `EduFood_Kelompok7App.swift`
+- Main View: `ContentView.swift`
+- Views: `View/`
+- ViewModels: `ViewModel/`
+- Models: `Model/`
+- Services: `Service/`
+- Assets: `Assets.xcassets/`
